@@ -1,0 +1,45 @@
+# Python byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribució / empaquetatge
+build/
+dist/
+eggs/
+*.egg-info/
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# PyInstaller
+#  (*.manifest, *.spec)
+*.spec
+
+# Instal·lacions locals
+pip-wheel-metadata/
+share/python-wheels/
+
+# Fitxers d’entorn / configuració local
+.env
+*.env
+
+# Logs i sortides
+*.log
+
+# IDEs i editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
