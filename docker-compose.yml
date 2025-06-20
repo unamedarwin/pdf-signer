@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  pdfsigner:
+    build: .
+    image: pdfsigner:latest
+    container_name: pdfsigner
+    ports:
+      - "8000:8000"
+    environment:
+#      TSA_URL: "http://freetsa.org/tsr"
+      TSA_URL: "http://timestamp.identrust.com"
+      MAX_RETRIES: "5"
+      INITIAL_DELAY: "2"
+      MAX_DELAY: "30"
+      MAX_CONTENT_LENGTH: "10485760"
+      FLASK_ENV: "production"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/healthz || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - signer-net
+
+networks:
+  signer-net:
+    driver: bridge
